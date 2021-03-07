@@ -12,7 +12,7 @@
   </MentalBreakDef>
   <MentalStateDef Name="PsychismMelancholy" ParentName="BaseMentalState">
     <defName>PsychismMelancholy</defName>
-    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <stateClass>Psychism.MentalState_PsychismMelancholy</stateClass>
     <label>melancholy</label>
     <category>Misc</category>
     <moodRecoveryThought>Catharsis</moodRecoveryThought>
@@ -41,7 +41,7 @@
   </MentalBreakDef>
   <MentalStateDef Name="PsychismConfusion" ParentName="BaseMentalState">
     <defName>PsychismConfusion</defName>
-    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <stateClass>Psychism.MentalState_PsychismMelancholy</stateClass>
     <label>confusion</label>
     <category>Misc</category>
     <moodRecoveryThought>Catharsis</moodRecoveryThought>
@@ -70,7 +70,7 @@
   </MentalBreakDef>
   <MentalStateDef Name="PsychismDespair" ParentName="BaseMentalState">
     <defName>PsychismDespair</defName>
-    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <stateClass>Psychism.MentalState_PsychismMelancholy</stateClass>
     <label>despair</label>
     <category>Misc</category>
     <moodRecoveryThought>Catharsis</moodRecoveryThought>

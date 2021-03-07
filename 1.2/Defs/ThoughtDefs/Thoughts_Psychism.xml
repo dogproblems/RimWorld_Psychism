@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>PsychicMelancholy</defName>
+    <thoughtClass>Psychism.Thought_PsychicMelancholy</thoughtClass>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <stackLimit>100</stackLimit>
+    <stages>
+      <li>
+        <label>psychic melancholy: {PSYCHISMSOURCE_labelShort}</label>
+        <description>A strange sadness has come over me.</description>
+        <baseMoodEffect>-1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
