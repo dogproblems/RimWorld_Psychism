@@ -6,8 +6,9 @@
   <MentalBreakDef>
     <defName>PsychismMelancholy</defName>
     <mentalState>PsychismMelancholy</mentalState>
-    <baseCommonality>1</baseCommonality>
+    <baseCommonality>100</baseCommonality>
     <intensity>Minor</intensity>
+    <workerClass>Psychism.MentalBreakWorker_Psychism</workerClass>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismMelancholy" ParentName="BaseMentalState">
     <defName>PsychismMelancholy</defName>
@@ -29,4 +30,63 @@
     <recoverFromSleep>false</recoverFromSleep>
   </MentalStateDef>
 
+  <!-- Mental breaks: major -->
+
+  <MentalBreakDef>
+    <defName>PsychismConfusion</defName>
+    <mentalState>PsychismConfusion</mentalState>
+    <baseCommonality>100</baseCommonality>
+    <intensity>Major</intensity>
+    <workerClass>Psychism.MentalBreakWorker_Psychism</workerClass>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismConfusion" ParentName="BaseMentalState">
+    <defName>PsychismConfusion</defName>
+    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <label>confusion</label>
+    <category>Misc</category>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts> 
+    <nameColor>(0.45, 0.15, 0.95)</nameColor>
+    <minTicksBeforeRecovery>50000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of confusion.</recoveryMessage>
+    <beginLetterLabel>psychism</beginLetterLabel>
+    <beginLetter>{0} is in a psychism of confusion.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Psychism of Confusion</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+  </MentalStateDef>
+
+  <!-- Mental breaks: extreme -->
+
+  <MentalBreakDef>
+    <defName>PsychismDespair</defName>
+    <mentalState>PsychismDespair</mentalState>
+    <baseCommonality>100</baseCommonality>
+    <intensity>Extreme</intensity>
+    <workerClass>Psychism.MentalBreakWorker_Psychism</workerClass>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismDespair" ParentName="BaseMentalState">
+    <defName>PsychismDespair</defName>
+    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <label>despair</label>
+    <category>Misc</category>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts> 
+    <nameColor>(0.45, 0.15, 0.95)</nameColor>
+    <minTicksBeforeRecovery>50000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of despair.</recoveryMessage>
+    <beginLetterLabel>psychism</beginLetterLabel>
+    <beginLetter>{0} is in a psychism of despair.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Psychism of Despair</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+  </MentalStateDef>
+
 </Defs>
+
