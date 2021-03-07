@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Psychism</name>
+	<author>Dog Problems</author>
+	<supportedVersions>
+		<li>1.2</li>
+	</supportedVersions>
+	<description>Adds dangerous psychic mental breaks which can affect stressed psycasters.</description>
+	<packageId>dogproblems.psychism</packageId>
+</ModMetaData>

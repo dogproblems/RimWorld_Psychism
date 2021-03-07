@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Mental breaks: minor -->
+
+  <MentalBreakDef>
+    <defName>PsychismMelancholy</defName>
+    <mentalState>PsychismMelancholy</mentalState>
+    <baseCommonality>100</baseCommonality>
+    <intensity>Minor</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismMelancholy" ParentName="BaseMentalState">
+    <defName>PsychismMelancholy</defName>
+    <stateClass>MentalState_WanderPsychotic</stateClass>
+    <label>melancholy</label>
+    <category>Misc</category>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <minTicksBeforeRecovery>70000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>90000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of melancholy.</recoveryMessage>
+    <beginLetterLabel>psychism</beginLetterLabel>
+    <beginLetter>{0} is in a psychism of melancholy.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Psychism of Melancholy</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+  </MentalStateDef>
+
+</Defs>
