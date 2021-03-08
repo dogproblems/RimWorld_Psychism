@@ -21,7 +21,7 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismMelancholy</defName>
     <mentalState>PsychismMelancholy</mentalState>
-    <baseCommonality>100</baseCommonality>
+    <baseCommonality>1</baseCommonality>
     <intensity>Minor</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismMelancholy" ParentName="BaseMentalState_Psychism">
@@ -49,13 +49,13 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismDejection</defName>
     <mentalState>PsychismDejection</mentalState>
-    <baseCommonality>100</baseCommonality>
+    <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismDejection" ParentName="BaseMentalState_Psychism">
     <defName>PsychismDejection</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
-    <label>confusion</label>
+    <label>dejection</label>
     <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
     <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
     <recoveryMtbDays>0.166</recoveryMtbDays>
@@ -72,12 +72,39 @@
     </modExtensions>    
   </MentalStateDef>
 
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismConfusion</defName>
+    <mentalState>PsychismConfusion</mentalState>
+    <baseCommonality>100</baseCommonality>
+    <intensity>Major</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismConfusion" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismConfusion</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>confusion</label>
+    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of confusion.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of confusion.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Confusion</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>17.0</radius>
+        <hediffDef>PsychicConfusion</hediffDef>
+      </li>
+    </modExtensions>    
+  </MentalStateDef>
+
+
   <!-- Mental breaks: extreme -->
 
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismDespair</defName>
     <mentalState>PsychismDespair</mentalState>
-    <baseCommonality>100</baseCommonality>
+    <baseCommonality>1</baseCommonality>
     <intensity>Extreme</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismDespair" ParentName="BaseMentalState_Psychism">

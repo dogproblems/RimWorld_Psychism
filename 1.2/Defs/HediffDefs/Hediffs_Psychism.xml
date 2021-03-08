@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef>
+    <defName>PsychicConfusion</defName>
+    <label>psychic confusion: {PSYCHISMSOURCE_labelShort}</label>
+    <labelNoun>a psychic confusion: {PSYCHISMSOURCE_labelShort}</labelNoun>
+    <description>Psychic suppression area effect caused by a psychism of confusion.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <comps>
+      <li>
+        <compClass>Psychism.HediffComp_PsychicRadiusEffect</compClass>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.7</setMax>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+ 
+
+</Defs>

@@ -30,12 +30,13 @@ namespace Psychism
             }
         }
 
-        private void AffectPawns(Pawn p, List<Pawn> pawns)
+        private void AffectPawns(Pawn source, List<Pawn> pawns)
         {
-            Hediff_ImplantWithLevel psylink = p.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_ImplantWithLevel;
-            float radius = this.def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().radius;
-            ThoughtDef thoughtDef = this.def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().thoughtDef;
-            
+            Hediff_ImplantWithLevel psylink = source.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_ImplantWithLevel;
+            float radius = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().radius;
+            ThoughtDef thoughtDef = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().thoughtDef;
+            HediffDef hediffDef = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().hediffDef;
+
             if (psylink == null)
                 return;
 
@@ -45,41 +46,80 @@ namespace Psychism
 
             for (int i = 0; i < pawns.Count; i++)
             {
-                Pawn pawn = pawns[i];
-                if (p != pawn && 
-                    p.RaceProps.Humanlike && 
-                    pawn.needs != null && 
-                    pawn.needs.mood != null && 
-                    pawn.needs.mood.thoughts != null && 
-                    (!p.Spawned || !pawn.Spawned || pawn.Position.DistanceTo(p.Position) <= radius))
-                {
-                    if (thoughtDef != null)
-                    {
-                        
-                        bool flag = false;
-                        using (List<Thought_Memory>.Enumerator enumerator = pawn.needs.mood.thoughts.memories.Memories.GetEnumerator())
-                        {
-                            while (enumerator.MoveNext())
-                            {
-                                Thought_PsychicRadiusEffect oldThought = enumerator.Current as Thought_PsychicRadiusEffect;
-                                if (oldThought != null && oldThought.psylink.pawn == p)
-                                {
-                                    flag = true;
-                                    break;
-                                }
-                            }
-                        }
-                        if (!flag)
-                        {
-                            Thought_PsychicRadiusEffect thought = (Thought_PsychicRadiusEffect)ThoughtMaker.MakeThought(thoughtDef);
+                Pawn target = pawns[i];
+                if (source == target ||
+                    !source.RaceProps.Humanlike ||
+                    target.needs == null ||
+                    target.needs.mood == null ||
+                    target.needs.mood.thoughts == null ||
+                    (
+                        source.Spawned &&
+                        target.Spawned &&
+                        target.Position.DistanceTo(source.Position) > radius)
+                )
+                    continue;
+                if (thoughtDef != null)
+                    TryApplyThought(target, thoughtDef, psylink, radius);
+                if (hediffDef != null)
+                    TryApplyHediff(target, hediffDef, psylink, radius);
+            }
 
-                            thought.psylink = psylink;
-                            thought.radius = radius;
-                            pawn.needs.mood.thoughts.memories.TryGainMemory(thought, null);
-                        }
+        }
+
+
+        private void TryApplyThought(Pawn target, ThoughtDef thoughtDef, Hediff_ImplantWithLevel psylink, float radius)
+        {
+            bool flag = false;
+            using (List<Thought_Memory>.Enumerator enumerator = target.needs.mood.thoughts.memories.Memories.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    Thought_PsychicRadiusEffect oldThought = enumerator.Current as Thought_PsychicRadiusEffect;
+                    if (oldThought != null && oldThought.psylink.pawn == psylink.pawn)
+                    {
+                        flag = true;
+                        break;
                     }
                 }
             }
+            if (!flag)
+            {
+                Thought_PsychicRadiusEffect thought = (Thought_PsychicRadiusEffect)ThoughtMaker.MakeThought(thoughtDef);
+
+                thought.psylink = psylink;
+                thought.radius = radius;
+                target.needs.mood.thoughts.memories.TryGainMemory(thought, null);
+            }
         }
+
+        private void TryApplyHediff(Pawn target, HediffDef hediffDef, Hediff_ImplantWithLevel psylink, float radius)
+        {
+            bool flag = false;
+
+            foreach (HediffComp comp in target.health.hediffSet.GetAllComps())
+            {
+                HediffComp_PsychicRadiusEffect oldHediffComp = comp as HediffComp_PsychicRadiusEffect;
+                if (oldHediffComp != null && oldHediffComp.psylink.pawn == psylink.pawn)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag)
+            {
+                List<Hediff> added = new List<Hediff>();
+                HediffGiverUtility.TryApply(target, hediffDef, new[] { BodyPartDefOf.Brain }, outAddedHediffs:added);
+                foreach (Hediff addedHediff in added)
+                {
+                    HediffComp_PsychicRadiusEffect comp = addedHediff.TryGetComp<HediffComp_PsychicRadiusEffect>();
+                    if (comp == null) continue;
+                    comp.psylink = psylink;
+                    comp.radius = radius;
+                }
+
+            }
+        }
+
     }
 }

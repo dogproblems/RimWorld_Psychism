@@ -10,6 +10,7 @@
             <states>
                 <li>PsychismMelancholy</li>
                 <li>PsychismDejection</li>
+                <li>PsychismConfusion</li>
                 <li>PsychismDespair</li>
             </states>
             <subNodes>

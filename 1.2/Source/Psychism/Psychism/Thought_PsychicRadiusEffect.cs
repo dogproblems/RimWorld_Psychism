@@ -17,24 +17,32 @@ namespace Psychism
             }
         }
 
+
+
         public override bool ShouldDiscard
         {
             get
             {
-                if (this.psylink == null)
+                if (psylink == null)
                     return true;
-                Pawn pawn = this.psylink.pawn;
-                return pawn.health.Dead ||
-                        pawn.needs == null ||
-                        pawn.needs.mood == null ||
-                        !pawn.InMentalState ||
+
+                Pawn source = psylink.pawn;
+
+                return source.health.Dead ||
+                        source.needs == null ||
+                        source.needs.mood == null ||
+                        !source.InMentalState ||
                         (
-                            (pawn.Spawned || this.pawn.Spawned || pawn.GetCaravan() != this.pawn.GetCaravan()) &&  
                             (
+                                source.Spawned || 
+                                pawn.Spawned || 
+                                source.GetCaravan() != pawn.GetCaravan()
+                            ) &&  
+                            (
+                                !source.Spawned || 
                                 !pawn.Spawned || 
-                                !this.pawn.Spawned || 
-                                pawn.Map != this.pawn.Map || 
-                                pawn.Position.DistanceTo(this.pawn.Position) > radius
+                                source.Map != pawn.Map || 
+                                source.Position.DistanceTo(pawn.Position) > radius
                             )
                         );
             }
