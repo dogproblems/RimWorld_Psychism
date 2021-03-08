@@ -6,7 +6,7 @@
     <label>psychic confusion: {PSYCHISMSOURCE_labelShort}</label>
     <labelNoun>a psychic confusion: {PSYCHISMSOURCE_labelShort}</labelNoun>
     <description>Psychic suppression area effect caused by a psychism of confusion.</description>
-    <hediffClass>HediffWithComps</hediffClass>
+    <hediffClass>Psychism.Hediff_PsychicRadiusEffect</hediffClass>
     <isBad>true</isBad>
     <comps>
       <li>

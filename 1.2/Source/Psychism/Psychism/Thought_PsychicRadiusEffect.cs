@@ -17,8 +17,6 @@ namespace Psychism
             }
         }
 
-
-
         public override bool ShouldDiscard
         {
             get

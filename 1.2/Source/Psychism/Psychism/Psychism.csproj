@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DefModExtension_WanderWithRadiusEffect.cs" />
     <Compile Include="HediffComp_PsychicRadiusEffect.cs" />
+    <Compile Include="Hediff_PsychicRadiusEffect.cs" />
     <Compile Include="MentalBreakWorker_Psychism.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MentalState_WanderWithRadiusEffect.cs" />
