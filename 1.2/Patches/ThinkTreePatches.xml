@@ -9,7 +9,7 @@
             <li Class="ThinkNode_ConditionalMentalStates">
             <states>
                 <li>PsychismMelancholy</li>
-                <li>PsychismConfusion</li>
+                <li>PsychismDejection</li>
                 <li>PsychismDespair</li>
             </states>
             <subNodes>

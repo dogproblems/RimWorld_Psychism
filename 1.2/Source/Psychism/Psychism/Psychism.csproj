@@ -49,10 +49,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefModExtension_WanderWithRadiusEffect.cs" />
     <Compile Include="MentalBreakWorker_Psychism.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MentalState_PsychismMelancholy.cs" />
-    <Compile Include="Thought_PsychicMelancholy.cs" />
+    <Compile Include="MentalState_WanderWithRadiusEffect.cs" />
+    <Compile Include="Thought_PsychicRadiusEffect.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

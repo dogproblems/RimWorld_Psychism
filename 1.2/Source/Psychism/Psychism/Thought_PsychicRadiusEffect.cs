@@ -4,9 +4,10 @@ using Verse;
 
 namespace Psychism
 {
-    class Thought_PsychicMelancholy : Thought_Memory
+    class Thought_PsychicRadiusEffect : Thought_Memory
     {
         public Hediff_ImplantWithLevel psylink;
+        public float radius;
 
         public override string LabelCap
         {
@@ -20,18 +21,30 @@ namespace Psychism
         {
             get
             {
+                if (this.psylink == null)
+                    return true;
                 Pawn pawn = this.psylink.pawn;
-                return pawn.health.Dead || 
-                        pawn.needs == null || 
-                        pawn.needs.mood == null || 
-                        ((pawn.Spawned || this.pawn.Spawned || pawn.GetCaravan() != this.pawn.GetCaravan()) && (!pawn.Spawned || !this.pawn.Spawned || pawn.Map != this.pawn.Map || pawn.Position.DistanceTo(this.pawn.Position) > 9));
+                return pawn.health.Dead ||
+                        pawn.needs == null ||
+                        pawn.needs.mood == null ||
+                        !pawn.InMentalState ||
+                        (
+                            (pawn.Spawned || this.pawn.Spawned || pawn.GetCaravan() != this.pawn.GetCaravan()) &&  
+                            (
+                                !pawn.Spawned || 
+                                !this.pawn.Spawned || 
+                                pawn.Map != this.pawn.Map || 
+                                pawn.Position.DistanceTo(this.pawn.Position) > radius
+                            )
+                        );
             }
         }
-
+        
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_References.Look<Hediff_ImplantWithLevel>(ref this.psylink, "psylink", false);
+            Scribe_Values.Look<float>(ref this.radius, "radius");
         }
 
         public override float MoodOffset()
@@ -58,7 +71,7 @@ namespace Psychism
 
         public override bool GroupsWith(Thought other)
         {
-            Thought_PsychicMelancholy thought = other as Thought_PsychicMelancholy;
+            Thought_PsychicRadiusEffect thought = other as Thought_PsychicRadiusEffect;
             return thought != null && base.GroupsWith(other) && thought.psylink == this.psylink;
         }
 

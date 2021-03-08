@@ -3,7 +3,7 @@
 
   <ThoughtDef>
     <defName>PsychicMelancholy</defName>
-    <thoughtClass>Psychism.Thought_PsychicMelancholy</thoughtClass>
+    <thoughtClass>Psychism.Thought_PsychicRadiusEffect</thoughtClass>
     <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
     <stackLimit>100</stackLimit>
     <stages>
@@ -14,5 +14,33 @@
       </li>
     </stages>
   </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>PsychicDejection</defName>
+    <thoughtClass>Psychism.Thought_PsychicRadiusEffect</thoughtClass>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <stackLimit>100</stackLimit>
+    <stages>
+      <li>
+        <label>psychic dejection: {PSYCHISMSOURCE_labelShort}</label>
+        <description>I can't help but see the glass as half-empty.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>PsychicDespair</defName>
+    <thoughtClass>Psychism.Thought_PsychicRadiusEffect</thoughtClass>
+    <effectMultiplyingStat>PsychicSensitivity</effectMultiplyingStat>
+    <stackLimit>100</stackLimit>
+    <stages>
+      <li>
+        <label>psychic despair: {PSYCHISMSOURCE_labelShort}</label>
+        <description>All the color has gone out of the world.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>    
 
 </Defs>
