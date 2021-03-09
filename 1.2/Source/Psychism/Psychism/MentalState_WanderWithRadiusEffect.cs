@@ -116,10 +116,9 @@ namespace Psychism
                     if (comp == null) continue;
                     comp.psylink = psylink;
                     comp.radius = radius;
+                    addedHediff.Severity = psylink.level * psylink.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
                 }
-
             }
         }
-
     }
 }

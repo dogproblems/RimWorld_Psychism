@@ -6,16 +6,18 @@ namespace Psychism
 {
     class Hediff_PsychicRadiusEffect : HediffWithComps
     {
-        public override string Label
+        public override string LabelBase
         {
             get
             {
                 HediffComp_PsychicRadiusEffect comp = this.TryGetComp<HediffComp_PsychicRadiusEffect>();
+                string label = base.LabelBase;
+
                 if (comp == null)
-                    return def.label;
-                return def.label.Formatted(comp.psylink.pawn.Named("PSYCHISMSOURCE")).CapitalizeFirst();
+                    return label;
+
+                return label + ": " + comp.psylink.pawn.LabelShort;
             }
         }
-
     }
 }

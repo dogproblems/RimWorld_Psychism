@@ -3,8 +3,8 @@
 
   <HediffDef>
     <defName>PsychicConfusion</defName>
-    <label>psychic confusion: {PSYCHISMSOURCE_labelShort}</label>
-    <labelNoun>a psychic confusion: {PSYCHISMSOURCE_labelShort}</labelNoun>
+    <label>psychic confusion</label>
+    <labelNoun>a psychic confusion</labelNoun>
     <description>Psychic suppression area effect caused by a psychism of confusion.</description>
     <hediffClass>Psychism.Hediff_PsychicRadiusEffect</hediffClass>
     <isBad>true</isBad>
@@ -18,9 +18,91 @@
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
-            <setMax>0.7</setMax>
+            <setMaxCurveOverride>
+              <points>
+                <li>0, 1</li>
+                <li>2, 0.9</li>
+              </points>
+            </setMaxCurveOverride>
+            <setMaxCurveEvaluateStat>PsychicSensitivity</setMaxCurveEvaluateStat>
           </li>
         </capMods>
+        <minSeverity>1.0</minSeverity>
+      </li>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMaxCurveOverride>
+              <points>
+                <li>0, 1</li>
+                <li>2, 0.8</li>
+              </points>
+            </setMaxCurveOverride>
+            <setMaxCurveEvaluateStat>PsychicSensitivity</setMaxCurveEvaluateStat>
+          </li>
+        </capMods>
+        <minSeverity>2.0</minSeverity>
+      </li>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMaxCurveOverride>
+              <points>
+                <li>0, 1</li>
+                <li>2, 0.7</li>
+              </points>
+            </setMaxCurveOverride>
+            <setMaxCurveEvaluateStat>PsychicSensitivity</setMaxCurveEvaluateStat>
+          </li>
+        </capMods>
+        <minSeverity>3.0</minSeverity>
+      </li>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMaxCurveOverride>
+              <points>
+                <li>0, 1</li>
+                <li>2, 0.6</li>
+              </points>
+            </setMaxCurveOverride>
+            <setMaxCurveEvaluateStat>PsychicSensitivity</setMaxCurveEvaluateStat>
+          </li>
+        </capMods>
+        <minSeverity>4.0</minSeverity>
+      </li>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMaxCurveOverride>
+              <points>
+                <li>0, 1</li>
+                <li>2, 0.5</li>
+              </points>
+            </setMaxCurveOverride>
+            <setMaxCurveEvaluateStat>PsychicSensitivity</setMaxCurveEvaluateStat>
+          </li>
+        </capMods>
+        <minSeverity>5.0</minSeverity>
+      </li>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMaxCurveOverride>
+              <points>
+                <li>0, 1</li>
+                <li>2, 0.4</li>
+              </points>
+            </setMaxCurveOverride>
+            <setMaxCurveEvaluateStat>PsychicSensitivity</setMaxCurveEvaluateStat>
+          </li>
+        </capMods>
+        <minSeverity>6.0</minSeverity>
       </li>
     </stages>
   </HediffDef>
