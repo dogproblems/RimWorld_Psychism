@@ -2,6 +2,22 @@
 <Defs>
 
   <HediffDef>
+    <defName>PsychicDistraction</defName>
+    <label>psychic distraction</label>
+    <labelNoun>a psychic distraction</labelNoun>
+    <description>Psychic recreation decay area effect caused by a psychism of distraction.</description>
+    <hediffClass>Psychism.Hediff_PsychicRadiusEffect</hediffClass>    
+    <isBad>true</isBad>
+    <comps>
+      <li Class="Psychism.HediffCompProperties_TickIntervalEffect">
+        <compClass>Psychism.HediffComp_PsychicDistraction</compClass>
+        <tickInterval>150</tickInterval>
+        <baseAmount>0.0045</baseAmount>
+      </li>
+    </comps>  
+  </HediffDef>
+
+  <HediffDef>
     <defName>PsychicConfusion</defName>
     <label>psychic confusion</label>
     <labelNoun>a psychic confusion</labelNoun>

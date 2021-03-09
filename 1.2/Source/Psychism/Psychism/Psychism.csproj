@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefModExtension_WanderWithRadiusEffect.cs" />
+    <Compile Include="HediffCompProperties_TickIntervalEffect.cs" />
+    <Compile Include="HediffComp_PsychicDistraction.cs" />
     <Compile Include="HediffComp_PsychicRadiusEffect.cs" />
     <Compile Include="Hediff_PsychicRadiusEffect.cs" />
     <Compile Include="MentalBreakWorker_Psychism.cs" />

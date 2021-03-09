@@ -12,7 +12,9 @@ namespace Psychism
         {
             base.MentalStateTick();
 
-            if (Gen.IsHashIntervalTick(pawn, 150))
+            int tickInterval = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().tickInterval;
+
+            if (!Gen.IsHashIntervalTick(pawn, tickInterval))
                 return;
 
             if (pawn.needs == null || pawn.needs.mood == null || pawn.Faction == null)
@@ -49,19 +51,32 @@ namespace Psychism
                 Pawn target = pawns[i];
                 if (source == target ||
                     !source.RaceProps.Humanlike ||
-                    target.needs == null ||
-                    target.needs.mood == null ||
-                    target.needs.mood.thoughts == null ||
                     (
                         source.Spawned &&
                         target.Spawned &&
-                        target.Position.DistanceTo(source.Position) > radius)
+                        target.Position.DistanceTo(source.Position) > radius
+                    )
                 )
                     continue;
-                if (thoughtDef != null)
-                    TryApplyThought(target, thoughtDef, psylink, radius);
-                if (hediffDef != null)
-                    TryApplyHediff(target, hediffDef, psylink, radius);
+
+                if(
+                    (
+                        target.RaceProps.Humanlike && 
+                        def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsHumans
+                    ) ||
+                    (
+                        target.RaceProps.Animal && 
+                        target.Faction != null && 
+                        def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsTameAnimals
+                    )
+                )
+                {
+                    if (thoughtDef != null)
+                        TryApplyThought(target, thoughtDef, psylink, radius);
+                    if (hediffDef != null)
+                        TryApplyHediff(target, hediffDef, psylink, radius);
+                }
+
             }
 
         }
@@ -69,6 +84,10 @@ namespace Psychism
 
         private void TryApplyThought(Pawn target, ThoughtDef thoughtDef, Hediff_ImplantWithLevel psylink, float radius)
         {
+            if (target.needs == null ||
+                target.needs.mood == null ||
+                target.needs.mood.thoughts == null) return;
+
             bool flag = false;
             using (List<Thought_Memory>.Enumerator enumerator = target.needs.mood.thoughts.memories.Memories.GetEnumerator())
             {

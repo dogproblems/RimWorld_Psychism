@@ -40,9 +40,39 @@
       <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
         <radius>9.0</radius>
         <thoughtDef>PsychicMelancholy</thoughtDef>
+        <tickInterval>150</tickInterval>
+        <affectsHumans>true</affectsHumans>
       </li>
     </modExtensions>
   </MentalStateDef>
+
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismDistraction</defName>
+    <mentalState>PsychismDistraction</mentalState>
+    <baseCommonality>1</baseCommonality>
+    <intensity>Minor</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismDistraction" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismDistraction</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>distraction</label>
+    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of distraction.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of distraction.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Distraction</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>13.0</radius>
+        <hediffDef>PsychicDistraction</hediffDef>
+        <tickInterval>150</tickInterval>
+        <affectsHumans>true</affectsHumans>
+      </li>
+    </modExtensions>
+  </MentalStateDef>  
 
   <!-- Mental breaks: major -->
 
@@ -68,6 +98,8 @@
       <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
         <radius>17.0</radius>
         <thoughtDef>PsychicDejection</thoughtDef>
+        <tickInterval>150</tickInterval>
+        <affectsHumans>true</affectsHumans>
       </li>
     </modExtensions>    
   </MentalStateDef>
@@ -75,7 +107,7 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismConfusion</defName>
     <mentalState>PsychismConfusion</mentalState>
-    <baseCommonality>100</baseCommonality>
+    <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismConfusion" ParentName="BaseMentalState_Psychism">
@@ -94,6 +126,8 @@
       <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
         <radius>17.0</radius>
         <hediffDef>PsychicConfusion</hediffDef>
+        <tickInterval>150</tickInterval>
+        <affectsHumans>true</affectsHumans>
       </li>
     </modExtensions>    
   </MentalStateDef>
@@ -123,6 +157,8 @@
       <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
         <radius>33.0</radius>
         <thoughtDef>PsychicDespair</thoughtDef>
+        <tickInterval>150</tickInterval>
+        <affectsHumans>true</affectsHumans>
       </li>
     </modExtensions>    
   </MentalStateDef>

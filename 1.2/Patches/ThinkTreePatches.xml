@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-    <!-- add Psychism jobs to thinktree -->
+    <!-- add vanilla wandering jobgivers to wander-type psychisms -->
 
     <Operation Class="PatchOperationAdd">
         <xpath>*/ThinkTreeDef[defName="MentalStateNonCritical"]/thinkRoot/subNodes</xpath>
@@ -9,6 +9,7 @@
             <li Class="ThinkNode_ConditionalMentalStates">
             <states>
                 <li>PsychismMelancholy</li>
+                <li>PsychismDistraction</li>
                 <li>PsychismDejection</li>
                 <li>PsychismConfusion</li>
                 <li>PsychismDespair</li>
