@@ -1,16 +1,27 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 using RimWorld;
 using RimWorld.Planet;
 
+
 namespace Psychism
 {
     class MentalState_WanderWithRadiusEffect : MentalState
     {
+        private Mote mote;
+
         public override void MentalStateTick()
         {
             base.MentalStateTick();
+
+            if (pawn.Spawned)
+            {
+                if (mote == null || mote.Destroyed)
+                    mote = MoteMaker.MakeAttachedOverlay(pawn, ThingDefOf.Mote_PsyfocusPulse, Vector3.zero, 1f, -1f);
+                mote.Maintain();
+            }
 
             int tickInterval = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().tickInterval;
 
@@ -66,9 +77,14 @@ namespace Psychism
                         def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsHumans
                     ) ||
                     (
-                        target.RaceProps.Animal && 
-                        target.Faction != null && 
+                        target.RaceProps.Animal &&
+                        target.Faction != null &&
                         def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsTameAnimals
+                    ) ||
+                    (
+                        target.RaceProps.Animal &&
+                        target.Faction == null &&
+                        def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsWildAnimals
                     )
                 )
                 {
