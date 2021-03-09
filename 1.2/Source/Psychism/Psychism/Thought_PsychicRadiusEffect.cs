@@ -30,6 +30,7 @@ namespace Psychism
                         source.needs == null ||
                         source.needs.mood == null ||
                         !source.InMentalState ||
+                        pawn.GetStatValue(StatDefOf.PsychicSensitivity) <= 0f ||
                         (
                             (
                                 source.Spawned || 

@@ -51,11 +51,12 @@ namespace Psychism
                 Pawn target = pawns[i];
                 if (source == target ||
                     !source.RaceProps.Humanlike ||
+                    target.GetStatValue(StatDefOf.PsychicSensitivity) <= 0f ||
                     (
                         source.Spawned &&
                         target.Spawned &&
                         target.Position.DistanceTo(source.Position) > radius
-                    )
+                    ) 
                 )
                     continue;
 
