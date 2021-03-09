@@ -132,6 +132,33 @@
     </modExtensions>    
   </MentalStateDef>
 
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismAmnesia</defName>
+    <mentalState>PsychismAmnesia</mentalState>
+    <baseCommonality>1</baseCommonality>
+    <intensity>Major</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismAmnesia" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismAmnesia</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>amnesia</label>
+    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of amnesia.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of amnesia.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Amnesia</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>13.0</radius>
+        <hediffDef>PsychicAmnesia</hediffDef>
+        <tickInterval>150</tickInterval>
+        <affectsHumans>true</affectsHumans>
+      </li>
+    </modExtensions>    
+  </MentalStateDef>
 
   <!-- Mental breaks: extreme -->
 

@@ -18,6 +18,22 @@
   </HediffDef>
 
   <HediffDef>
+    <defName>PsychicAmnesia</defName>
+    <label>psychic amnesia</label>
+    <labelNoun>a psychic amnesia</labelNoun>
+    <description>Psychic skill decay area effect caused by a psychism of amnesia.</description>
+    <hediffClass>Psychism.Hediff_PsychicRadiusEffect</hediffClass>    
+    <isBad>true</isBad>
+    <comps>
+      <li Class="Psychism.HediffCompProperties_TickIntervalEffect">
+        <compClass>Psychism.HediffComp_PsychicAmnesia</compClass>
+        <tickInterval>150</tickInterval>
+        <baseAmount>1.0</baseAmount>
+      </li>
+    </comps>  
+  </HediffDef>
+
+  <HediffDef>
     <defName>PsychicConfusion</defName>
     <label>psychic confusion</label>
     <labelNoun>a psychic confusion</labelNoun>
