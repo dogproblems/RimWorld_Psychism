@@ -190,5 +190,35 @@
     </modExtensions>    
   </MentalStateDef>
 
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismCruelty</defName>
+    <mentalState>PsychismCruelty</mentalState>
+    <baseCommonality>1</baseCommonality>
+    <intensity>Major</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismCruelty" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismCruelty</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>cruelty</label>
+    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of cruelty.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of cruelty.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Cruelty</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>21.0</radius>
+        <hediffDef>PsychicPain</hediffDef>
+        <tickInterval>150</tickInterval>
+        <affectsHumans>true</affectsHumans>
+        <affectsTameAnimals>true</affectsTameAnimals>
+        <affectsWildAnimals>true</affectsWildAnimals>
+      </li>
+    </modExtensions>    
+  </MentalStateDef>  
+
 </Defs>
 

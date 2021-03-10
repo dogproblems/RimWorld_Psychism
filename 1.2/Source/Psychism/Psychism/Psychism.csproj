@@ -58,6 +58,7 @@
     <Compile Include="HediffComp_PsychicAmnesia.cs" />
     <Compile Include="HediffComp_PsychicDistraction.cs" />
     <Compile Include="HediffComp_PsychicRadiusEffect.cs" />
+    <Compile Include="Hediff_PsychicPain.cs" />
     <Compile Include="Hediff_PsychicRadiusEffect.cs" />
     <Compile Include="MentalBreakWorker_Psychism.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

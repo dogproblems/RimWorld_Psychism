@@ -144,16 +144,16 @@ namespace Psychism
 
             if (!flag)
             {
-                List<Hediff> added = new List<Hediff>();
-                HediffGiverUtility.TryApply(target, hediffDef, new[] { BodyPartDefOf.Brain }, outAddedHediffs:added);
-                foreach (Hediff addedHediff in added)
-                {
-                    HediffComp_PsychicRadiusEffect comp = addedHediff.TryGetComp<HediffComp_PsychicRadiusEffect>();
-                    if (comp == null) continue;
-                    comp.psylink = psylink;
-                    comp.radius = radius;
-                    addedHediff.Severity = psylink.level * psylink.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
-                }
+                BodyPartRecord brain = target.health.hediffSet.GetBrain();
+                if (brain == null) return;
+                Hediff_PsychicRadiusEffect hediff = HediffMaker.MakeHediff(hediffDef, target, brain) as Hediff_PsychicRadiusEffect;
+                if (hediff == null) return;
+                HediffComp_PsychicRadiusEffect comp = hediff.TryGetComp<HediffComp_PsychicRadiusEffect>();
+                if (comp == null) return;
+                comp.psylink = psylink;
+                comp.radius = radius;
+                hediff.Severity = psylink.level * psylink.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+                target.health.AddHediff(hediff);
             }
         }
     }

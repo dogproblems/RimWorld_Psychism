@@ -16,6 +16,7 @@
                 <li>PsychismAmnesia</li>
 
                 <li>PsychismDespair</li>
+                <li>PsychismCruelty</li>
             </states>
             <subNodes>
                 <li Class="ThinkNode_PrioritySorter">

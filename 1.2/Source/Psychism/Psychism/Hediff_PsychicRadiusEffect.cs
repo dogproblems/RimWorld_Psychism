@@ -1,6 +1,4 @@
-﻿using RimWorld;
-using RimWorld.Planet;
-using Verse;
+﻿using Verse;
 
 namespace Psychism
 {
@@ -18,6 +16,27 @@ namespace Psychism
 
                 return label + ": " + comp.psylink.pawn.LabelShort;
             }
+        }
+
+        public override bool TryMergeWith(Hediff other)
+        {
+            if (other == null || other.def != def || other.Part != Part)
+                return false;
+
+            Hediff_PsychicRadiusEffect otherPRE = other as Hediff_PsychicRadiusEffect;
+            if (otherPRE == null)
+                return false;
+
+            HediffComp_PsychicRadiusEffect comp = this.TryGetComp<HediffComp_PsychicRadiusEffect>();
+            HediffComp_PsychicRadiusEffect otherComp = otherPRE.TryGetComp<HediffComp_PsychicRadiusEffect>();
+
+            if (comp == null || otherComp == null)
+                return false;
+
+            if (comp.psylink == null || otherComp.psylink == null || comp.psylink != otherComp.psylink)
+                return false;
+
+            return true;
         }
     }
 }
