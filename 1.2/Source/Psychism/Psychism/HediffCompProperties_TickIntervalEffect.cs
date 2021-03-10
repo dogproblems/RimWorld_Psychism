@@ -7,5 +7,6 @@ namespace Psychism
     {
         public int tickInterval = -1;
         public float baseAmount = 0f;
+        public float baseChance = 1f;
     }
 }

@@ -34,6 +34,22 @@
   </HediffDef>
 
   <HediffDef>
+    <defName>PsychicFerality</defName>
+    <label>psychic ferality</label>
+    <labelNoun>a psychic ferality</labelNoun>
+    <description>Psychic training decay area effect caused by a psychism of ferality.</description>
+    <hediffClass>Psychism.Hediff_PsychicRadiusEffect</hediffClass>    
+    <isBad>true</isBad>
+    <comps>
+      <li Class="Psychism.HediffCompProperties_TickIntervalEffect">
+        <compClass>Psychism.HediffComp_PsychicFerality</compClass>
+        <tickInterval>505</tickInterval>
+        <baseChance>0.05</baseChance>
+      </li>
+    </comps>  
+  </HediffDef>  
+
+  <HediffDef>
     <defName>PsychicConfusion</defName>
     <label>psychic confusion</label>
     <labelNoun>a psychic confusion</labelNoun>

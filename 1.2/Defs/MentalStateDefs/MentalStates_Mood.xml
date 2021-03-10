@@ -160,6 +160,33 @@
     </modExtensions>    
   </MentalStateDef>
 
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismFerality</defName>
+    <mentalState>PsychismFerality</mentalState>
+    <baseCommonality>1</baseCommonality>
+    <intensity>Major</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismFerality" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismFerality</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>ferality</label>
+    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoveryMessage>{0} is no longer in a psychism of ferality.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of ferality.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Ferality</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>13.0</radius>
+        <hediffDef>PsychicFerality</hediffDef>
+        <tickInterval>150</tickInterval>
+        <affectsTameAnimals>true</affectsTameAnimals>
+      </li>
+    </modExtensions>    
+  </MentalStateDef>
   <!-- Mental breaks: extreme -->
 
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
@@ -210,7 +237,7 @@
     <recoverFromSleep>false</recoverFromSleep>
     <modExtensions>
       <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
-        <radius>21.0</radius>
+        <radius>27.0</radius>
         <hediffDef>PsychicPain</hediffDef>
         <tickInterval>150</tickInterval>
         <affectsHumans>true</affectsHumans>
