@@ -16,8 +16,6 @@ namespace Psychism
                 return;
 
             float amount = Props.baseAmount * 
-                psylink.level * 
-                psylink.pawn.GetStatValue(StatDefOf.PsychicSensitivity) * 
                 parent.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
 
             parent.pawn.needs.joy.CurLevel -= amount;
