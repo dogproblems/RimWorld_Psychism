@@ -6,13 +6,13 @@ namespace Psychism
 {
     class HediffComp_PsychicRadiusEffect : HediffComp
     {
-        public Hediff_ImplantWithLevel psylink;
+        public Hediff_Psylink psylink;
         public float radius;
 
         public override void CompExposeData()
         {
             base.CompExposeData();
-            Scribe_References.Look<Hediff_ImplantWithLevel>(ref this.psylink, "psylink", false);
+            Scribe_References.Look<Hediff_Psylink>(ref this.psylink, "psylink", false);
             Scribe_Values.Look<float>(ref this.radius, "radius");
 
             

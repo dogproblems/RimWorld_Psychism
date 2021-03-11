@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Psychism</RootNamespace>
     <AssemblyName>Psychism</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\Harmony\Current\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -53,7 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompBuilding_Psychism.cs" />
     <Compile Include="DefModExtension_WanderWithRadiusEffect.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HediffCompProperties_TickIntervalEffect.cs" />
     <Compile Include="HediffComp_PsychicAmnesia.cs" />
     <Compile Include="HediffComp_PsychicDistraction.cs" />
@@ -62,6 +69,7 @@
     <Compile Include="Hediff_PsychicPain.cs" />
     <Compile Include="Hediff_PsychicRadiusEffect.cs" />
     <Compile Include="MentalBreakWorker_Psychism.cs" />
+    <Compile Include="MentalState_PsychismImpedance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MentalState_WanderWithRadiusEffect.cs" />
     <Compile Include="Thought_PsychicRadiusEffect.cs" />

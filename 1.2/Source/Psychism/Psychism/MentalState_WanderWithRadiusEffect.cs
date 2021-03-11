@@ -31,21 +31,34 @@ namespace Psychism
             if (pawn.needs == null || pawn.needs.mood == null || pawn.Faction == null)
                 return;
 
+
+            if (def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsHumans ||
+                def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsTameAnimals ||
+                def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().affectsWildAnimals)
+            {
+                if (pawn.Spawned)
+                {
+                    AffectPawns(pawn, pawn.Map.mapPawns.AllPawnsSpawned);
+                    return;
+                }
+                Caravan caravan = pawn.GetCaravan();
+                if (caravan != null)
+                {
+                    AffectPawns(pawn, caravan.pawns.InnerListForReading);
+                }
+            }
+
             if (pawn.Spawned)
             {
-                AffectPawns(pawn, pawn.Map.mapPawns.AllPawnsSpawned);
-                return;
-            }
-            Caravan caravan = pawn.GetCaravan();
-            if (caravan != null)
-            {
-                AffectPawns(pawn, caravan.pawns.InnerListForReading);
+                Hediff_Psylink psylink = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_Psylink;
+                float radius = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().radius;
+                TryApplyCustom(psylink, radius);
             }
         }
 
         private void AffectPawns(Pawn source, List<Pawn> pawns)
         {
-            Hediff_ImplantWithLevel psylink = source.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_ImplantWithLevel;
+            Hediff_Psylink psylink = source.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_Psylink;
             float radius = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().radius;
             ThoughtDef thoughtDef = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().thoughtDef;
             HediffDef hediffDef = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().hediffDef;
@@ -99,7 +112,7 @@ namespace Psychism
         }
 
 
-        private void TryApplyThought(Pawn target, ThoughtDef thoughtDef, Hediff_ImplantWithLevel psylink, float radius)
+        private void TryApplyThought(Pawn target, ThoughtDef thoughtDef, Hediff_Psylink psylink, float radius)
         {
             if (target.needs == null ||
                 target.needs.mood == null ||
@@ -128,7 +141,7 @@ namespace Psychism
             }
         }
 
-        private void TryApplyHediff(Pawn target, HediffDef hediffDef, Hediff_ImplantWithLevel psylink, float radius)
+        private void TryApplyHediff(Pawn target, HediffDef hediffDef, Hediff_Psylink psylink, float radius)
         {
             bool flag = false;
 
@@ -156,5 +169,8 @@ namespace Psychism
                 target.health.AddHediff(hediff);
             }
         }
+
+        protected virtual void TryApplyCustom(Hediff_Psylink psylink, float radius)
+        { }
     }
 }

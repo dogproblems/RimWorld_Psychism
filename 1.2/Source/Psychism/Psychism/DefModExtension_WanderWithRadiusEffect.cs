@@ -7,6 +7,7 @@ namespace Psychism
     {
         public float radius = 0f;
         public int tickInterval = -1;
+        public float baseAmount = 0f;
         public bool affectsHumans = false;
         public bool affectsTameAnimals = false;
         public bool affectsWildAnimals = false;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <!-- add comp to all buildings which can be affected by psychisms -->
+
+    <Operation Class="PatchOperationInsert">
+        <xpath>*/ThingDef/comps/li[@Class="CompProperties_Power" and basePowerConsumption]</xpath>
+        <value>
+            <li>
+                <compClass>Psychism.CompBuilding_Psychism</compClass>
+            </li>
+        </value>
+    </Operation>
+
+
+
+</Patch>

@@ -3,6 +3,7 @@
 
   <MentalBreakDef Abstract="True" Name="BaseMentalBreak_Psychism">
     <defName>BaseMentalBreak_Psychism</defName>
+    <baseCommonality>0.333</baseCommonality>
     <workerClass>Psychism.MentalBreakWorker_Psychism</workerClass>
   </MentalBreakDef>
 
@@ -14,6 +15,9 @@
     <nameColor>(0.45, 0.15, 0.95)</nameColor>
     <beginLetterLabel>psychism</beginLetterLabel>
     <beginLetterDef>NegativeEvent</beginLetterDef>
+    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>    
   </MentalStateDef>
 
   <!-- Mental breaks: minor -->
@@ -21,16 +25,12 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismMelancholy</defName>
     <mentalState>PsychismMelancholy</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Minor</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismMelancholy" ParentName="BaseMentalState_Psychism">
     <defName>PsychismMelancholy</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>melancholy</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of melancholy.</recoveryMessage>
     <beginLetter>{0} is in a psychism of melancholy.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Melancholy</baseInspectLine>
@@ -49,16 +49,12 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismDistraction</defName>
     <mentalState>PsychismDistraction</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Minor</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismDistraction" ParentName="BaseMentalState_Psychism">
     <defName>PsychismDistraction</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>distraction</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of distraction.</recoveryMessage>
     <beginLetter>{0} is in a psychism of distraction.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Distraction</baseInspectLine>
@@ -74,21 +70,40 @@
     </modExtensions>
   </MentalStateDef>  
 
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismImpedance</defName>
+    <mentalState>PsychismImpedance</mentalState>
+    <intensity>Minor</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismImpedance" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismImpedance</defName>
+    <stateClass>Psychism.MentalState_PsychismImpedance</stateClass>
+    <label>distraction</label>
+    <recoveryMessage>{0} is no longer in a psychism of impedance.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of impedance.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of impedance</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>23.0</radius>
+        <tickInterval>500</tickInterval>
+        <baseAmount>0.1</baseAmount>
+      </li>
+    </modExtensions>
+  </MentalStateDef>    
+
   <!-- Mental breaks: major -->
 
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismDejection</defName>
     <mentalState>PsychismDejection</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismDejection" ParentName="BaseMentalState_Psychism">
     <defName>PsychismDejection</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>dejection</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of dejection.</recoveryMessage>
     <beginLetter>{0} is in a psychism of dejection.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Dejection</baseInspectLine>
@@ -107,16 +122,12 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismConfusion</defName>
     <mentalState>PsychismConfusion</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismConfusion" ParentName="BaseMentalState_Psychism">
     <defName>PsychismConfusion</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>confusion</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of confusion.</recoveryMessage>
     <beginLetter>{0} is in a psychism of confusion.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Confusion</baseInspectLine>
@@ -135,16 +146,12 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismAmnesia</defName>
     <mentalState>PsychismAmnesia</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismAmnesia" ParentName="BaseMentalState_Psychism">
     <defName>PsychismAmnesia</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>amnesia</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of amnesia.</recoveryMessage>
     <beginLetter>{0} is in a psychism of amnesia.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Amnesia</baseInspectLine>
@@ -163,16 +170,12 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismFerality</defName>
     <mentalState>PsychismFerality</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismFerality" ParentName="BaseMentalState_Psychism">
     <defName>PsychismFerality</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>ferality</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of ferality.</recoveryMessage>
     <beginLetter>{0} is in a psychism of ferality.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Ferality</baseInspectLine>
@@ -192,16 +195,12 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismDespair</defName>
     <mentalState>PsychismDespair</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Extreme</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismDespair" ParentName="BaseMentalState_Psychism">
     <defName>PsychismDespair</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>despair</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of despair.</recoveryMessage>
     <beginLetter>{0} is in a psychism of despair.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Despair</baseInspectLine>
@@ -220,16 +219,12 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismCruelty</defName>
     <mentalState>PsychismCruelty</mentalState>
-    <baseCommonality>1</baseCommonality>
     <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismCruelty" ParentName="BaseMentalState_Psychism">
     <defName>PsychismCruelty</defName>
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>cruelty</label>
-    <minTicksBeforeRecovery>30000</minTicksBeforeRecovery>
-    <maxTicksBeforeRecovery>70000</maxTicksBeforeRecovery>
-    <recoveryMtbDays>0.166</recoveryMtbDays>
     <recoveryMessage>{0} is no longer in a psychism of cruelty.</recoveryMessage>
     <beginLetter>{0} is in a psychism of cruelty.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Cruelty</baseInspectLine>

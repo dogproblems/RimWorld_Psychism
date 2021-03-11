@@ -6,7 +6,7 @@ namespace Psychism
 {
     class Thought_PsychicRadiusEffect : Thought_Memory
     {
-        public Hediff_ImplantWithLevel psylink;
+        public Hediff_Psylink psylink;
         public float radius;
 
         public override string LabelCap
@@ -50,7 +50,7 @@ namespace Psychism
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Hediff_ImplantWithLevel>(ref this.psylink, "psylink", false);
+            Scribe_References.Look<Hediff_Psylink>(ref this.psylink, "psylink", false);
             Scribe_Values.Look<float>(ref this.radius, "radius");
         }
 

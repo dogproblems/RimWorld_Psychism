@@ -10,10 +10,12 @@
             <states>
                 <li>PsychismMelancholy</li>
                 <li>PsychismDistraction</li>
+                <li>PsychismImpedance</li>
 
                 <li>PsychismDejection</li>
                 <li>PsychismConfusion</li>
                 <li>PsychismAmnesia</li>
+                <li>PsychismFerality</li>
 
                 <li>PsychismDespair</li>
                 <li>PsychismCruelty</li>
