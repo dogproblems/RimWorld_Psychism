@@ -32,7 +32,7 @@
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>melancholy</label>
     <recoveryMessage>{0} is no longer in a psychism of melancholy.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of melancholy.</beginLetter>
+    <beginLetter>{0} is in a psychism of melancholy.\n\nPeople near [PAWN_objective] will be less happy.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Melancholy</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>
@@ -56,7 +56,7 @@
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>distraction</label>
     <recoveryMessage>{0} is no longer in a psychism of distraction.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of distraction.</beginLetter>
+    <beginLetter>{0} is in a psychism of distraction.\n\nPeople near [PAWN_objective] will be need more recreation time.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Distraction</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>
@@ -78,10 +78,10 @@
   <MentalStateDef Name="PsychismImpedance" ParentName="BaseMentalState_Psychism">
     <defName>PsychismImpedance</defName>
     <stateClass>Psychism.MentalState_PsychismImpedance</stateClass>
-    <label>distraction</label>
+    <label>impedance</label>
     <recoveryMessage>{0} is no longer in a psychism of impedance.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of impedance.</beginLetter>
-    <baseInspectLine>Mental state: Psychism of impedance</baseInspectLine>
+    <beginLetter>{0} is in a psychism of impedance.\n\nMachines near [PAWN_objective] will require more power.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Impedance</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>
     <modExtensions>
@@ -94,30 +94,31 @@
   </MentalStateDef>    
 
   <!-- Mental breaks: major -->
-
-  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
-    <defName>PsychismDejection</defName>
-    <mentalState>PsychismDejection</mentalState>
-    <intensity>Major</intensity>
-  </MentalBreakDef>
-  <MentalStateDef Name="PsychismDejection" ParentName="BaseMentalState_Psychism">
-    <defName>PsychismDejection</defName>
-    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
-    <label>dejection</label>
-    <recoveryMessage>{0} is no longer in a psychism of dejection.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of dejection.</beginLetter>
-    <baseInspectLine>Mental state: Psychism of Dejection</baseInspectLine>
-    <unspawnedCanDo>true</unspawnedCanDo>
-    <recoverFromSleep>false</recoverFromSleep>
-    <modExtensions>
-      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
-        <radius>17.0</radius>
-        <thoughtDef>PsychicDejection</thoughtDef>
-        <tickInterval>150</tickInterval>
-        <affectsHumans>true</affectsHumans>
-      </li>
-    </modExtensions>    
-  </MentalStateDef>
+  <!--
+    <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+      <defName>PsychismDejection</defName>
+      <mentalState>PsychismDejection</mentalState>
+      <intensity>Major</intensity>
+    </MentalBreakDef>
+    <MentalStateDef Name="PsychismDejection" ParentName="BaseMentalState_Psychism">
+      <defName>PsychismDejection</defName>
+      <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+      <label>dejection</label>
+      <recoveryMessage>{0} is no longer in a psychism of dejection.</recoveryMessage>
+      <beginLetter>{0} is in a psychism of dejection.\n\nPeople near [PAWN_objective] will be less happy.</beginLetter>
+      <baseInspectLine>Mental state: Psychism of Dejection</baseInspectLine>
+      <unspawnedCanDo>true</unspawnedCanDo>
+      <recoverFromSleep>false</recoverFromSleep>
+      <modExtensions>
+        <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+          <radius>17.0</radius>
+          <thoughtDef>PsychicDejection</thoughtDef>
+          <tickInterval>150</tickInterval>
+          <affectsHumans>true</affectsHumans>
+        </li>
+      </modExtensions>    
+    </MentalStateDef>
+  -->
 
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismConfusion</defName>
@@ -129,7 +130,7 @@
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>confusion</label>
     <recoveryMessage>{0} is no longer in a psychism of confusion.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of confusion.</beginLetter>
+    <beginLetter>{0} is in a psychism of confusion.\n\nPeople near [PAWN_objective] will have lowered consciousness.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Confusion</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>
@@ -153,7 +154,7 @@
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>amnesia</label>
     <recoveryMessage>{0} is no longer in a psychism of amnesia.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of amnesia.</beginLetter>
+    <beginLetter>{0} is in a psychism of amnesia.\n\nPeople near [PAWN_objective] will forget their skills more quickly.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Amnesia</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>
@@ -177,7 +178,7 @@
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>ferality</label>
     <recoveryMessage>{0} is no longer in a psychism of ferality.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of ferality.</beginLetter>
+    <beginLetter>{0} is in a psychism of ferality.\n\nTame animals near [PAWN_objective] will lose their training and return to the wild more quickly.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Ferality</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>
@@ -190,6 +191,30 @@
       </li>
     </modExtensions>    
   </MentalStateDef>
+
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismMalfunction</defName>
+    <mentalState>PsychismMalfunction</mentalState>
+    <intensity>Minor</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismMalfunction" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismMalfunction</defName>
+    <stateClass>Psychism.MentalState_PsychismMalfunction</stateClass>
+    <label>distraction</label>
+    <recoveryMessage>{0} is no longer in a psychism of malfunction.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of malfunction.\n\nMachines near [PAWN_objective] will break down more often.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Malfunction</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>13.0</radius>
+        <tickInterval>1500</tickInterval>
+        <baseChance>0.01</baseChance>
+      </li>
+    </modExtensions>
+  </MentalStateDef>    
+
   <!-- Mental breaks: extreme -->
 
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
@@ -202,7 +227,7 @@
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>despair</label>
     <recoveryMessage>{0} is no longer in a psychism of despair.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of despair.</beginLetter>
+    <beginLetter>{0} is in a psychism of despair.\n\nPeople near [PAWN_objective] will be much less happy.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Despair</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>
@@ -226,7 +251,7 @@
     <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
     <label>cruelty</label>
     <recoveryMessage>{0} is no longer in a psychism of cruelty.</recoveryMessage>
-    <beginLetter>{0} is in a psychism of cruelty.</beginLetter>
+    <beginLetter>{0} is in a psychism of cruelty.\n\nPeople and animals near [PAWN_objective] will experience physical pain.</beginLetter>
     <baseInspectLine>Mental state: Psychism of Cruelty</baseInspectLine>
     <unspawnedCanDo>true</unspawnedCanDo>
     <recoverFromSleep>false</recoverFromSleep>

@@ -12,10 +12,11 @@
                 <li>PsychismDistraction</li>
                 <li>PsychismImpedance</li>
 
-                <li>PsychismDejection</li>
+                <!--<li>PsychismDejection</li>-->
                 <li>PsychismConfusion</li>
                 <li>PsychismAmnesia</li>
                 <li>PsychismFerality</li>
+                <li>PsychismMalfunction</li>
 
                 <li>PsychismDespair</li>
                 <li>PsychismCruelty</li>

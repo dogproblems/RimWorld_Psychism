@@ -71,6 +71,7 @@
     <Compile Include="MentalBreakWorker_Psychism.cs" />
     <Compile Include="MentalStateDefOf_Psychism.cs" />
     <Compile Include="MentalState_PsychismImpedance.cs" />
+    <Compile Include="MentalState_PsychismMalfunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MentalState_WanderWithRadiusEffect.cs" />
     <Compile Include="Thought_PsychicRadiusEffect.cs" />
