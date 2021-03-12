@@ -93,6 +93,30 @@
     </modExtensions>
   </MentalStateDef>    
 
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismDust</defName>
+    <mentalState>PsychismDust</mentalState>
+    <intensity>Major</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismDust" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismDust</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>distraction</label>
+    <recoveryMessage>{0} is no longer in a psychism of dust.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of dust.\n\nSand will appear around [PAWN_objective].</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Dust</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>11.0</radius>
+        <tickInterval>20</tickInterval>
+        <baseChance>0.1</baseChance>
+        <filthDef>Filth_Sand</filthDef>
+      </li>
+    </modExtensions>
+  </MentalStateDef>       
+
   <!-- Mental breaks: major -->
   <!--
     <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
@@ -195,7 +219,7 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismMalfunction</defName>
     <mentalState>PsychismMalfunction</mentalState>
-    <intensity>Minor</intensity>
+    <intensity>Major</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismMalfunction" ParentName="BaseMentalState_Psychism">
     <defName>PsychismMalfunction</defName>
@@ -213,7 +237,32 @@
         <baseChance>0.01</baseChance>
       </li>
     </modExtensions>
-  </MentalStateDef>    
+  </MentalStateDef> 
+
+
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismGore</defName>
+    <mentalState>PsychismGore</mentalState>
+    <intensity>Major</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismGore" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismGore</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>distraction</label>
+    <recoveryMessage>{0} is no longer in a psychism of gore.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of gore.\n\nBlood will appear around [PAWN_objective].</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Gore</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>11.0</radius>
+        <tickInterval>20</tickInterval>
+        <baseChance>0.1</baseChance>
+        <filthDef>Filth_Blood</filthDef>
+      </li>
+    </modExtensions>
+  </MentalStateDef>       
 
   <!-- Mental breaks: extreme -->
 
@@ -244,7 +293,7 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismCruelty</defName>
     <mentalState>PsychismCruelty</mentalState>
-    <intensity>Major</intensity>
+    <intensity>Extreme</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismCruelty" ParentName="BaseMentalState_Psychism">
     <defName>PsychismCruelty</defName>
@@ -270,7 +319,7 @@
   <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
     <defName>PsychismDessication</defName>
     <mentalState>PsychismDessication</mentalState>
-    <intensity>Minor</intensity>
+    <intensity>Extreme</intensity>
   </MentalBreakDef>
   <MentalStateDef Name="PsychismDessication" ParentName="BaseMentalState_Psychism">
     <defName>PsychismDessication</defName>
@@ -289,7 +338,31 @@
         <baseAmount>3</baseAmount>
       </li>
     </modExtensions>
-  </MentalStateDef>      
+  </MentalStateDef>     
+
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismFilth</defName>
+    <mentalState>PsychismFilth</mentalState>
+    <intensity>Extreme</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismFilth" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismFilth</defName>
+    <stateClass>Psychism.MentalState_WanderWithRadiusEffect</stateClass>
+    <label>distraction</label>
+    <recoveryMessage>{0} is no longer in a psychism of filth.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of filth.\n\nCorpse bile will appear around [PAWN_objective].</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Filth</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>11.0</radius>
+        <tickInterval>20</tickInterval>
+        <baseChance>0.1</baseChance>
+        <filthDef>Filth_CorpseBile</filthDef>
+      </li>
+    </modExtensions>
+  </MentalStateDef>  
 
 </Defs>
 

@@ -30,7 +30,7 @@ namespace Psychism
             if (!psylinks.Contains(psylink))
             {
                 psylinks.Add(psylink);
-                Log.Message(string.Format("adding {0} to {1}", psylink.pawn.LabelShort, parent.LabelShort));
+                // Log.Message(string.Format("adding {0} to {1}", psylink.pawn.LabelShort, parent.LabelShort));
             }
         }
 
@@ -39,7 +39,7 @@ namespace Psychism
             if (psylinks.Contains(psylink))
             {
                 psylinks.Remove(psylink);
-                Log.Message(string.Format("removing {0} from {1}", psylink.pawn.LabelShort, parent.LabelShort));
+                // Log.Message(string.Format("removing {0} from {1}", psylink.pawn.LabelShort, parent.LabelShort));
             }
         }
     }

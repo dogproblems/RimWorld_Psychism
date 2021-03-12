@@ -27,7 +27,7 @@ namespace Psychism
         public override void PostEnd()
         {
             base.PostEnd();
-            Log.Message(string.Format("PostEnd on {0}", pawn.LabelShort));
+            // Log.Message(string.Format("PostEnd on {0}", pawn.LabelShort));
 
             Hediff_Psylink psylink = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_Psylink;
 

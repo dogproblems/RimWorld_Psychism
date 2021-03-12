@@ -14,5 +14,6 @@ namespace Psychism
         public bool affectsWildAnimals = false;
         public ThoughtDef thoughtDef = null;
         public HediffDef hediffDef = null;
+        public ThingDef filthDef = null;
     }
 }

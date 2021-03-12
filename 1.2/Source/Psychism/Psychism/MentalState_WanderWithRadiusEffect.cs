@@ -53,6 +53,15 @@ namespace Psychism
                 Hediff_Psylink psylink = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicAmplifier) as Hediff_Psylink;
                 float radius = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().radius;
                 TryApplyCustom(psylink, radius);
+
+                ThingDef filthDef = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().filthDef;
+                float baseChance = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().baseChance;
+                float strength = psylink.level * psylink.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
+
+                if (filthDef != null && Verse.Rand.Chance(baseChance * strength))
+                {
+                    FilthMaker.TryMakeFilth(Verse.IntVec3Utility.ToIntVec3(Verse.Rand.InsideUnitCircleVec3 * radius) + pawn.Position, pawn.Map, filthDef);
+                }
             }
         }
 

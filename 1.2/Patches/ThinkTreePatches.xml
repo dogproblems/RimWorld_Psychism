@@ -11,16 +11,19 @@
                 <li>PsychismMelancholy</li>
                 <li>PsychismDistraction</li>
                 <li>PsychismImpedance</li>
+                <li>PsychismDust</li>
 
                 <!--<li>PsychismDejection</li>-->
                 <li>PsychismConfusion</li>
                 <li>PsychismAmnesia</li>
                 <li>PsychismFerality</li>
                 <li>PsychismMalfunction</li>
+                <li>PsychismGore</li>
 
                 <li>PsychismDespair</li>
                 <li>PsychismCruelty</li>
                 <li>PsychismDessication</li>
+                <li>PsychismFilth</li>
             </states>
             <subNodes>
                 <li Class="ThinkNode_PrioritySorter">
