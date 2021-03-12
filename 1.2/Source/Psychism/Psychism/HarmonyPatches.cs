@@ -23,7 +23,7 @@ namespace Psychism
             CompBuilding_Psychism comp = __instance.parent.GetComp<CompBuilding_Psychism>();
 
             if (comp != null && __result < 0f)
-                __result *= 1f + (.1f * comp.TotalStrength);
+                __result *= 1f + (.1f * comp.GetTotalStrength(MentalStateDefOf_Psychism.PsychismImpedance));
         }
     }
 }

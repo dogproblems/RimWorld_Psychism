@@ -69,6 +69,7 @@
     <Compile Include="Hediff_PsychicPain.cs" />
     <Compile Include="Hediff_PsychicRadiusEffect.cs" />
     <Compile Include="MentalBreakWorker_Psychism.cs" />
+    <Compile Include="MentalStateDefOf_Psychism.cs" />
     <Compile Include="MentalState_PsychismImpedance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MentalState_WanderWithRadiusEffect.cs" />

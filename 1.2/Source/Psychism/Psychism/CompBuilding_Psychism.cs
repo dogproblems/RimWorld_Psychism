@@ -18,12 +18,11 @@ namespace Psychism
         }
 
 
-        public float TotalStrength
+        public float GetTotalStrength(MentalStateDef def)
         {
-            get
-            {
-                return psylinks.Select(x => x.level * x.pawn.GetStatValue(StatDefOf.PsychicSensitivity)).Sum();
-            }
+            return psylinks.Where(x => x.pawn.MentalStateDef == def)
+                .Select(x => x.level * x.pawn.GetStatValue(StatDefOf.PsychicSensitivity))
+                .Sum();
         }
 
         public void TryAddPsylink(Hediff_Psylink psylink, float radius)
