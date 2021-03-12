@@ -8,8 +8,7 @@ namespace Psychism
         protected override void TryApplyCustom(Hediff_Psylink psylink, float radius)
         {
             float strength = psylink.level * psylink.pawn.GetStatValue(StatDefOf.PsychicSensitivity);
-            float baseAmount = def.GetModExtension<DefModExtension_WanderWithRadiusEffect>().baseAmount;
-
+            
             foreach (ThingWithComps building in pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingArtificial))
             {
                 CompBuilding_Psychism comp = building.TryGetComp<CompBuilding_Psychism>();

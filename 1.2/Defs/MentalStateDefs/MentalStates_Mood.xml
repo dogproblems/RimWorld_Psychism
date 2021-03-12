@@ -267,5 +267,29 @@
     </modExtensions>    
   </MentalStateDef>  
 
+  <MentalBreakDef ParentName="BaseMentalBreak_Psychism">
+    <defName>PsychismDessication</defName>
+    <mentalState>PsychismDessication</mentalState>
+    <intensity>Minor</intensity>
+  </MentalBreakDef>
+  <MentalStateDef Name="PsychismDessication" ParentName="BaseMentalState_Psychism">
+    <defName>PsychismDessication</defName>
+    <stateClass>Psychism.MentalState_PsychismDessication</stateClass>
+    <label>distraction</label>
+    <recoveryMessage>{0} is no longer in a psychism of dessication.</recoveryMessage>
+    <beginLetter>{0} is in a psychism of dessication.\n\nPlants near [PAWN_objective] will gradually die.</beginLetter>
+    <baseInspectLine>Mental state: Psychism of Dessication</baseInspectLine>
+    <unspawnedCanDo>true</unspawnedCanDo>
+    <recoverFromSleep>false</recoverFromSleep>
+    <modExtensions>
+      <li Class="Psychism.DefModExtension_WanderWithRadiusEffect">
+        <radius>19.0</radius>
+        <tickInterval>700</tickInterval>
+        <baseChance>0.1</baseChance>
+        <baseAmount>3</baseAmount>
+      </li>
+    </modExtensions>
+  </MentalStateDef>      
+
 </Defs>
 

@@ -70,6 +70,7 @@
     <Compile Include="Hediff_PsychicRadiusEffect.cs" />
     <Compile Include="MentalBreakWorker_Psychism.cs" />
     <Compile Include="MentalStateDefOf_Psychism.cs" />
+    <Compile Include="MentalState_PsychismDessication.cs" />
     <Compile Include="MentalState_PsychismImpedance.cs" />
     <Compile Include="MentalState_PsychismMalfunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
